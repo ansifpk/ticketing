@@ -5,6 +5,8 @@ import { TicketCreatedListener } from './events/listeners.ts/ticketCreatedListen
 import { TicketUpdatedListener } from './events/listeners.ts/ticketUpdatedListener';
 import { ExpirationCompleteListener } from './events/listeners.ts/expiration-complete-listener';
 const start = async()=>{
+    console.log("Starting....");
+    
     if(!process.env.JWT_KEY){
         throw new Error('JWT_KEY ust be defined')
     }
