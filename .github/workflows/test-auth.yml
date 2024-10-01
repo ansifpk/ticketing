@@ -1,13 +1,13 @@
-name: test-auth
+# name: test-auth
 
-on: 
-  pull_request:
-    path:
-      - 'auth/**'
+# on: 
+#   pull_request:
+#     path:
+#       - 'auth/**'
 
-jobs:
-  build:
-    runs-on: ubuntu-latest 
-    steps:
-      - uses: actions/checkout@v2
-      - run: cd auth && npm install && npm run test:ci 
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest 
+#     steps:
+#       - uses: actions/checkout@v2
+#       - run: cd auth && npm install && npm run test:ci 

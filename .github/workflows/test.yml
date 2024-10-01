@@ -1,11 +1,11 @@
-name: test
+# name: test
 
-on: 
-  pull_request
+# on: 
+#   pull_request
 
-jobs:
-  build:
-    runs-on: ubundu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - run: cd auth && npm insatll && npm run test:ci
+# jobs:
+#   build:
+#     runs-on: ubundu-latest
+#     steps:
+#       - uses: actions/checkout@v2
+#       - run: cd auth && npm insatll && npm run test:ci

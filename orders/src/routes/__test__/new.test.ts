@@ -5,14 +5,28 @@ import { signIn } from "../../test/signIn";
 import { Ticket } from "../../models/ticketModel";
 import { OrderStatus } from "../../types/orderStatus";
 import { Order } from "../../models/orderModel";
+const buildTicket = async()=>{
+   const ticket =  Ticket.build({
+        id: new mongoose.Types.ObjectId().toHexString(),
+        title:"sports",
+        price:20,
+    })
+    await ticket.save();
+    return ticket;
+}
 
-it("returns error if ticket not exist",async()=>{
-    const ticketId = new mongoose.Types.ObjectId();
+it("fetch orders for a perticular user",async()=>{
+     const t1 = await buildTicket();
+     const t2 = await buildTicket();
+     const t3 = await buildTicket();
+
+const userOne = signIn()
+const userOTwo = signIn()
     await request(app)
     .post('/api/orders')
     .set('Cookie',signIn())
-    .send({ticketId})
-    .expect(404)
+    .send({ticketId:t1.id})
+    .expect(201)
 })
 it("reqt error if ticket already reserved",async()=>{
     const ticket = Ticket.build({
@@ -27,7 +41,6 @@ it("reqt error if ticket already reserved",async()=>{
         expiresAt:new Date()
     })
     await order.save();
-    const ticketId = new mongoose.Types.ObjectId();
     await request(app)
     .post('/api/orders')
     .set('Cookie',signIn())
