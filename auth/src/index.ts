@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 import { app } from './app';
 const start = async()=>{
+    console.log("hi This From auth/Index.ys");
     if(!process.env.JWT_KEY){
         throw new Error('JWT_KEY ust be defined')
     }
