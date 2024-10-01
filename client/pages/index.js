@@ -1,4 +1,4 @@
-import axios from "axios";
+
 import buildClient from "../api/buildClient";
  const LandingPage = ({currentUser}) => {
   console.log("im in compo",currentUser);
