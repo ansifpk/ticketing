@@ -44,14 +44,14 @@ build:
         manual:
           - src: "src/**/*.ts"
             dest: .
-    # - image: tickets/payments
-    #   context: payments
-    #   docker:
-    #     dockerfile: Dockerfile
-    #   sync:
-    #     manual:
-    #       - src: "src/**/*.ts"
-    #         dest: .
+    - image: tickets/payments
+      context: payments
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "src/**/*.ts"
+            dest: .
 deploy:
   kubectl:
     manifests:
